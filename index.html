@@ -2,31 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Guess My Number!</title>
+    <script>
+      function calcBMI() {
+        let a = document.getElementById("i0").value;
+        let b = document.getElementById("i1").value;
+        console.log("a / b ** 2 ", a / b ** 2);
+        console.log("a / (b * b)", a / (b * b));
+        if (b / a ** 2 < 18.5) {
+          document.getElementById("result").textContent = "痩せ";
+        } else if (18.5 <= b / a ** 2 && b / a ** 2 < 25) {
+          document.getElementById("result").textContent = "標準";
+        } else if (25 <= b / a ** 2 && b / a ** 2 < 30) {
+          document.getElementById("result").textContent = "肥満1度";
+        } else if (30 <= b / a ** 2 && b / a ** 2 < 35) {
+          document.getElementById("result").textContent = "肥満2度";
+        } else if (35 <= b / a ** 2 && b / a ** 2 < 40) {
+          document.getElementById("result").textContent = "肥満3度";
+        } else if (40 <= b / a ** 2) {
+          document.getElementById("result").textContent = "肥満4度";
+        }
+      }
+    </script>
   </head>
   <body>
-    <header>
-      <h1>Guess My Number!</h1>
-      <p class="between">(Between 1 and 20)</p>
-      <button class="btn again">Again!</button>
-      <div class="number">?</div>
-    </header>
-    <main>
-      <section class="left">
-        <input type="number" class="guess" />
-        <button class="btn check">Check!</button>
-      </section>
-      <section class="right">
-        <p class="message">Start guessing...</p>
-        <p class="label-score">💯 Score: <span class="score">20</span></p>
-        <p class="label-highscore">
-          🥇 Highscore: <span class="highscore">0</span>
-        </p>
-      </section>
-    </main>
-    <script src="script.js"></script>
+    <h2>BMI計算機</h2>
+    身長(m):<input id="i0" /> 体重(kg):<input id="i1" />
+    <button onclick="calcBMI()">calc</button>
+    <p id="result"></p>
   </body>
 </html>
